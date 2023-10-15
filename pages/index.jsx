@@ -1,23 +1,25 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Transition } from "@headlessui/react";
 import { useToast } from "@hanseo0507/react-toast";
 import Link from "next/link";
+
 export default function Home() {
   const [loaded, setLoaded] = React.useState(false);
   const { toast } = useToast();
-  React.useEffect(() => {
+
+  useEffect(() => {
     setLoaded(false);
 
     setInterval(() => {
       setLoaded(true);
-    }, 1500);
+    }, 1000);
   }, []);
-
   return (
     <>
+
       <Transition
         as={React.Fragment}
-        show={loaded ? false : true}
+        show={!loaded}
         enter="transform transition duration-[5ms]"
         enterFrom="opacity-0 translate-y-full"
         enterTo="opacity-100 translate-y-0"
@@ -33,6 +35,7 @@ export default function Home() {
                   <div className=" h-6 w-[220px] h-[35px] bg-slate-700 rounded" />
                 </h1>
               </div>
+              
               <br />
               <div className="grid w-[140px]  gap-4">
                 <div className="col-span-5" />
@@ -72,7 +75,7 @@ export default function Home() {
       </Transition>
       <Transition
         as={React.Fragment}
-        show={loaded ? true : false}
+        show={loaded}
         enter="transform transition duration-[500ms]"
         enterFrom="opacity-0"
         enterTo="opacity-100"
@@ -83,17 +86,19 @@ export default function Home() {
         <div>
           <div id="hero" className="p-10">
             <div className="flex justify-center items-center">
-              <h1 className="font-bold text-2xl md:text-5xl tracking-tight ms-2 text-black dark:text-white">
-                <span className="dark:text-[#454FBF] text-[#5865F2] hover:text-[#454FBF] dark:hover:text-[#5865F2]">
-                  AstralBot hakkında
-                </span>
+              <h1 className="font-bold text-2xl md:text-5xl tracking-tight ms-2 animated-text hover:scale-105 duration-75">
+                uwuv3 API
               </h1>
             </div>
-<br />
-            <p className="text-lg leading-7 text-black dark:text-white">Göt</p>
-            <p className="text-lg leading-7 text-black dark:text-white">Göt bir göttür</p>
-            <p className="text-lg leading-7 text-black dark:text-white">Sen bir götsün</p>
-            <p className="text-lg leading-7 text-black dark:text-white">Götünü yüyüm</p>
+            <br />
+            <div className="flex justify-center items-center">
+              <h1 className="ont-bold text-2xl md:text-5xl tracking-tight ms-2  animated-text2 hover:scale-105 duration-75">
+                Çok yakında sizlerle
+              </h1>
+            </div>
+            <p className="text-lg leading-7 text-black dark:text-white"></p>
+            <p className="text-lg leading-7 text-black dark:text-white"></p>
+            <p className="text-lg leading-7 text-black dark:text-white"></p>
           </div>
         </div>
       </Transition>

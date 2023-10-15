@@ -2,9 +2,10 @@
 @import "tailwindcss/components";
 @import "tailwindcss/utilities";
 
+@import url("https://fonts.googleapis.com/css2?family=Noto+Color+Emoji&family=Ubuntu&display=swap");
 html,
 body {
-  font-family: "Poppins", sans-serif;
+  font-family: "Ubuntu", sans-serif;
   padding: 0;
   margin: 0;
 }
@@ -30,7 +31,7 @@ body {
   background-color: rgba(0, 0, 0, 0.25);
 }
 ::-webkit-scrollbar-thumb {
-  background-color: #5865F2;
+  background-color: #5865f2;
   border-radius: 10px;
 }
 ::-webkit-scrollbar {
@@ -195,4 +196,55 @@ textarea {
   border: 1px solid hsla(0, 0%, 100%, 0.1);
   transition: 0.2s;
 }
+.animated-text {
+  @apply bg-clip-text text-transparent inline-block bg-repeat;
+  background-size: 200% 200%;
+  text-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+  transition: text-shadow 2s;
 
+  background-image: linear-gradient(90deg, blue, yellow);
+  animation: scrollBackground 10s infinite;
+  &:hover {
+    text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+  }
+}
+.animated-text2 {
+  @apply bg-clip-text text-transparent inline-block bg-repeat;
+  background-size: 200% 200%;
+  text-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+  transition: text-shadow 2s;
+
+  background-image: linear-gradient(90deg, rgb(0, 0, 0), rgb(0, 0, 0), rgb(0, 0, 0), rgb(0, 0, 0), rgb(255, 255, 255), rgb(255, 255, 255));
+  animation: scrollBackground 10s infinite;
+  &:hover {
+    text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+  }
+}
+/*
+.animated-text2:hover {
+  color: white; 
+}
+.animated-text2 {
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+  display: inline-block;
+  background-repeat: repeat;
+  background-size: 200% 200%;
+  background-image: linear-gradient(90deg, black);
+  transition: color 2s; 
+  text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+}
+*/
+
+@keyframes scrollBackground {
+  0% {
+    background-position: 0 0;
+  }
+  50% {
+    background-position: 100% 100%;
+  }
+  100% {
+    background-position: 0, 0;
+  }
+}
