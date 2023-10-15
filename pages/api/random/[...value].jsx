@@ -8,6 +8,14 @@ import {
 import apiLimiter from "../../../lib/rateLimitChecker";
 import ReactDOMServer from "react-dom/server";
 import { createCanvas, loadImage } from "@napi-rs/canvas";
+import { NextApiRequest, NextApiResponse } from "next";
+
+/**
+ * A simple Next.js API route.
+ *
+ * @param {NextApiRequest} req - The request object.
+ * @param {NextApiResponse} res - The response object.
+ */
 export default function handler(req, res) {
   apiLimiter(req, res, async (err) => {
     if (err) {
@@ -77,24 +85,7 @@ export default function handler(req, res) {
           if (req.query.getRandom) json.data2 = randomArray(emoji, 2)[0];
           res.status(200).json(json);
         } else {
-          const jsxContent = (
-            <>
-              <a href="/api/random/dog?type=json">Random Dog (JSON)</a>{" "}
-              <a> | </a>{" "}
-              <a href="/api/random/cat?type=json">Random Cat (JSON)</a>{" "}
-              <a> | </a>{" "}
-              <a href="/api/random/image?type=json">Random Image (JSON)</a>{" "}
-              <a> | </a>
-              <a href="/api/random/dog">Random Dog (Image)</a> <a> | </a>{" "}
-              <a href="/api/random/cat">Random Cat (Image)</a> <a> | </a>{" "}
-              <a href="/api/random/image">Random Image (Image)</a> <a> | </a>{" "}
-              <a href="/api/random/emoji?getRandom=true&size=4">Random Emoji</a>{" "}
-              <a> | </a>
-            </>
-          );
-          const htmlContent = ReactDOMServer.renderToStaticMarkup(jsxContent);
-
-          res.status(200).send(htmlContent);
+          res.redirect("/apis");
         }
       } catch (error) {
         res.status(400).json({ status: 400, data: `${error}` });

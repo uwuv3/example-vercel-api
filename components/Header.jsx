@@ -3,7 +3,10 @@ import Link from "next/link";
 import { useEffect, useState } from "react";
 import darkTheme from "../hooks/dark";
 import { Popover, Transition } from "@headlessui/react";
-const navItems = [{ label: "Ana sayfa", href: "/", icon: "fa-regular fa-house" }];
+const navItems = [
+  { label: "Ana sayfa", href: "/", icon: "fa-regular fa-house" },
+  { label: "Api", href: "/apis", icon: "fa-regular fa-code" },
+];
 const Header = () => {
   const router = useRouter();
   const [isActive, setActive] = useState(false);
@@ -23,7 +26,6 @@ const Header = () => {
           className="flex items-center dark:text-[#454FBF] text-[#5865F2] hover:text-[#454FBF] dark:hover:text-[#5865F2]"
           style={{ fontSize: "15px" }}
         >
-
           {navItems.map((item) => (
             <Link legacyBehavior href={item.href} key={item.href}>
               <a
@@ -37,7 +39,7 @@ const Header = () => {
                   "dark:text-[#454FBF] text-[#5865F2]"
                 } hover:text-[#454FBF] dark:hover:text-[#5865F2] font-bold  mr-2 p-1 sm:p-4 text-lg hover:scale-105 duration-75`}
               >
-                {item.label}
+                <i className={item.icon}></i> {item.label}
               </a>
             </Link>
           ))}

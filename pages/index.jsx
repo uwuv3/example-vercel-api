@@ -16,7 +16,6 @@ export default function Home() {
   }, []);
   return (
     <>
-
       <Transition
         as={React.Fragment}
         show={!loaded}
@@ -35,7 +34,7 @@ export default function Home() {
                   <div className=" h-6 w-[220px] h-[35px] bg-slate-700 rounded" />
                 </h1>
               </div>
-              
+
               <br />
               <div className="grid w-[140px]  gap-4">
                 <div className="col-span-5" />
@@ -96,7 +95,11 @@ export default function Home() {
                 Çok yakında sizlerle
               </h1>
             </div>
-            <p className="text-lg leading-7 text-black dark:text-white"></p>
+            <br />
+
+            <h2 className="text-lg leading-7 text-black dark:text-white">
+              Bu site test sitesidir,üzerinize alınmayın
+            </h2>
             <p className="text-lg leading-7 text-black dark:text-white"></p>
             <p className="text-lg leading-7 text-black dark:text-white"></p>
           </div>

@@ -12,6 +12,7 @@ function main({ Component, pageProps }) {
   const router = useRouter();
   let path = router.asPath;
   if (path == "/") path = "Ana sayfa";
+  if (path == "/apis") path = "Api Listesi";
   return (
     <>
       <Head>

@@ -217,7 +217,7 @@ textarea {
   background-image: linear-gradient(90deg, rgb(0, 0, 0), rgb(0, 0, 0), rgb(0, 0, 0), rgb(0, 0, 0), rgb(255, 255, 255), rgb(255, 255, 255));
   animation: scrollBackground 10s infinite;
   &:hover {
-    text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+    text-shadow: 0 0 5px rgba(255, 255, 255, 1);
   }
 }
 /*
