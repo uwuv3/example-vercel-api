@@ -208,7 +208,7 @@ function getRandomColor() {
     .toString(16)
     .padStart(2, "0")}${blue.toString(16).padStart(2, "0")}`;
 
-  return { hex: hexCode };
+  return { hex: hexCode, rgba: { red, blue, green } };
 }
 function isValidHexColor(hex) {
   // HEX kodunun uzunluğunu kontrol etme
