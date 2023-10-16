@@ -23,10 +23,22 @@ const urls = [
     image: `/api/random/image`,
   },
   {
+    title: "random/color",
+    desc: `Json verisinde rastgele boya atar`,
+    href: `/api/random/color`,
+    image: `/api/random/color?hex=${getRandomColor().hex.replace("#", "")}`,
+  },
+  {
     title: "random/emoji",
     desc: `JSON verisinde rastgele emoji(ler) atar`,
     href: `/api/random/emoji?size=4&getRandom=true`,
-  },  {
+  },
+  {
+    title: "random/password",
+    desc: `JSON verisinde rastgele şifre atar`,
+    href: `/api/random/password?length=8`,
+  },
+  {
     title: "minecraft/server-info",
     desc: `JSON verisinde rastgele emoji(ler) atar`,
     href: `/api/minecraft/server-info?ip=oyna.craftrise.tc`,
@@ -134,21 +146,20 @@ export default function Home() {
                       <div className="w-[1024px] h-[512px] bg-slate-700 rounded col-span-2" />{" "}
                     </div>
                   )}
-                  {value?.title ? (
-                    <>
-                      <div className="w-full pt-2 flex items-center">
-                        <h1 className="text-3xl font-bold text-black dark:text-white">
-                          {value?.title}
+                  <div className="w-full pt-2 flex items-center">
+                    {value?.title ? (
+                      <>
+                        <h1 className="text-2xl font-bold text-black dark:text-white">
+                       {value?.title}
                         </h1>
-                      </div>
-                    </>
-                  ) : (
-                    <div className="w-full pt-2 flex items-center animate-pulse">
+                      </>
+                    ) : (
                       <h1 className="text-3xl font-bold text-white">
                         <div className="h-5 w-28 bg-slate-700 rounded col-span-2" />
                       </h1>
-                    </div>
-                  )}
+                    )}
+                  </div>
+
                   {value?.desc ? (
                     <>
                       <div
@@ -188,4 +199,17 @@ export default function Home() {
       </Transition>
     </>
   );
+}
+function getRandomColor() {
+  const red = Math.floor(Math.random() * 256);
+  const green = Math.floor(Math.random() * 256);
+  const blue = Math.floor(Math.random() * 256);
+
+  const hexCode = `#${red.toString(16).padStart(2, "0")}${green
+    .toString(16)
+    .padStart(2, "0")}${blue.toString(16).padStart(2, "0")}`;
+
+  const rgbaCode = `${red}, ${green}, ${blue}`;
+
+  return { hex: hexCode, rgba: { red, green, blue } };
 }
